@@ -57,8 +57,13 @@ export default function Navbar() {
   }, [])
 
   const scrollTo = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
-    setMenuOpen(false)
+    const element = document.getElementById(id)
+    if (element) {
+      setMenuOpen(false)
+      setTimeout(() => {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      }, 100)
+    }
   }
 
   return (
@@ -146,15 +151,15 @@ export default function Navbar() {
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden overflow-hidden"
+            className="md:hidden overflow-hidden fixed top-14 left-0 right-0 z-[899]"
             style={{ background: 'var(--glass-bg)', backdropFilter: 'blur(20px)', borderBottom: '1px solid var(--border)' }}
           >
-            <div className="container-main py-4 flex flex-col gap-1">
+            <div className="container-main py-4 flex flex-col gap-1 w-full">
               {NAV_LINKS.map(link => (
                 <button
                   key={link.href}
                   onClick={() => scrollTo(link.href)}
-                  className="py-3 px-4 text-left text-sm rounded-lg transition-colors"
+                  className="py-3 px-4 text-left text-sm rounded-lg transition-colors w-full"
                   style={{ color: active === link.href ? 'var(--accent)' : 'var(--text-2)', background: active === link.href ? 'var(--glow)' : 'transparent' }}
                 >
                   {link.label}
