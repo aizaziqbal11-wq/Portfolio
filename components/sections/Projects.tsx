@@ -97,8 +97,8 @@ const PROJECTS: Project[] = [
   ],
   color: '#dc2626',
   emoji: '⚖️',
-  github: 'https://github.com',
-  demo: 'https://demo.example.com',
+  github: 'https://github.com/aizaziqbal11-wq/LawFirm',
+  demo: 'https://law-firm-k23ridb3l-aizaziqbal11-4651s-projects.vercel.app/',
  },
  
 ]
