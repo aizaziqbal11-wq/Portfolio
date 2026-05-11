@@ -95,6 +95,11 @@ const PROJECTS: Project[] = [
     'Document management',
     'Fully responsive design',
   ],
+  images: [
+    '/projects/law-firm/lawfirm1.jpg',
+    '/projects/law-firm/lawfirm2.jpg',
+    '/projects/law-firm/lawfirm3.jpg',
+  ],
   color: '#dc2626',
   emoji: '⚖️',
   github: 'https://github.com/aizaziqbal11-wq/LawFirm',

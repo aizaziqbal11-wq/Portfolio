@@ -14,6 +14,7 @@ export type Project = {
   emoji: string
   github: string
   demo?: string
+  images?: string[]
 }
 
 interface ProjectModalProps {
@@ -113,6 +114,20 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                   ))}
                 </div>
               </div>
+
+              {/* Images Gallery */}
+              {project.images && project.images.length > 0 && (
+                <div className="mb-8">
+                  <h3 className="text-xs font-mono uppercase tracking-widest mb-3" style={{ color: 'var(--text-3)' }}>Gallery</h3>
+                  <div className="grid grid-cols-2 gap-3">
+                    {project.images.map((img, i) => (
+                      <div key={i} className="relative overflow-hidden rounded-lg border" style={{ borderColor: `${project.color}30`, aspectRatio: '16/9' }}>
+                        <img src={img} alt={`${project.title} screenshot ${i + 1}`} className="w-full h-full object-cover" />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
 
               {/* Features */}
               <div className="mb-8">
