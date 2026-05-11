@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useTheme } from '@/context/ThemeContext'
 import { useActiveSection } from '@/hooks/useActiveSection'
-import AizazLogo from './AizazLogo'
 
 const NAV_LINKS = [
   { href: 'hero', label: 'Home' },
@@ -57,13 +56,8 @@ export default function Navbar() {
   }, [])
 
   const scrollTo = (id: string) => {
-    const element = document.getElementById(id)
-    if (element) {
-      setMenuOpen(false)
-      setTimeout(() => {
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' })
-      }, 100)
-    }
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+    setMenuOpen(false)
   }
 
   return (
@@ -84,8 +78,17 @@ export default function Navbar() {
       >
         <div className="container-main flex items-center justify-between h-14 md:h-16">
           {/* Logo */}
-          <button onClick={() => scrollTo('hero')} className="transition-all hover:scale-105">
-            <AizazLogo className="w-32 h-8 md:w-40 md:h-10" />
+          <button onClick={() => scrollTo('hero')} className="flex items-center gap-2 font-medium transition-all hover:scale-105">
+            <div className="w-8 h-8 rounded-lg flex items-center justify-center text-sm font-bold text-white"
+              style={{
+                background: 'linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%)',
+                boxShadow: '0 4px 12px var(--glow)',
+              }}>
+              A
+            </div>
+            <span className="text-xs sm:text-sm" style={{ color: 'var(--text-1)' }}>
+              aizaz
+            </span>
           </button>
 
           {/* Desktop Nav */}
@@ -151,15 +154,15 @@ export default function Navbar() {
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden overflow-hidden fixed top-14 left-0 right-0 z-[899]"
+            className="md:hidden overflow-hidden"
             style={{ background: 'var(--glass-bg)', backdropFilter: 'blur(20px)', borderBottom: '1px solid var(--border)' }}
           >
-            <div className="container-main py-4 flex flex-col gap-1 w-full">
+            <div className="container-main py-4 flex flex-col gap-1">
               {NAV_LINKS.map(link => (
                 <button
                   key={link.href}
                   onClick={() => scrollTo(link.href)}
-                  className="py-3 px-4 text-left text-sm rounded-lg transition-colors w-full"
+                  className="py-3 px-4 text-left text-sm rounded-lg transition-colors"
                   style={{ color: active === link.href ? 'var(--accent)' : 'var(--text-2)', background: active === link.href ? 'var(--glow)' : 'transparent' }}
                 >
                   {link.label}

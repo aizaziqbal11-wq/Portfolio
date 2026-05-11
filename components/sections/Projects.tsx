@@ -87,6 +87,26 @@ const PROJECTS: Project[] = [
     github: 'https://github.com',
     demo: 'https://demo.example.com',
   },
+ {
+  title: 'Law firm website',
+  tagline: 'Responsive web apps with backend integration',
+  description: 'Collection of dynamic web applications built using PHP, Firebase, and modern frontend technologies.',
+  longDescription: 'Developed multiple full-stack web applications including portfolio websites and database-driven systems. Focused on responsive UI design, backend connectivity, authentication, and clean, maintainable code using PHP, MySQL, Firebase, and REST APIs.',
+  stack: ['PHP', 'MySQL', 'Firebase', 'HTML', 'CSS', 'JavaScript', 'Flask'],
+  features: [
+    'Dynamic database-driven websites',
+    'User authentication with Firebase',
+    'REST API integration',
+    'Responsive UI design',
+    'Backend form handling and validation',
+  ],
+
+    color: '#a78bfa',
+    emoji: '🌐',
+    github: 'https://github.com',
+    demo: 'https://demo.example.com',
+  },
+ 
 ]
 
 function ProjectCard({ project, index, onClick }: { project: Project; index: number; onClick: () => void }) {

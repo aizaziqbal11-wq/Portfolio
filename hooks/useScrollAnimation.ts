@@ -5,6 +5,6 @@ import { useRef } from 'react'
 
 export function useScrollAnimation(amount = 0.2) {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: false, amount })
+  const isInView = useInView(ref, { once: true, amount })
   return { ref, isInView }
 }
